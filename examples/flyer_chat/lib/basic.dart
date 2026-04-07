@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_chat_core/flutter_chat_core.dart';
 import 'package:flutter_chat_ui/flutter_chat_ui.dart';
 
+import 'local_composer.dart';
+
 class Basic extends StatefulWidget {
   const Basic({super.key});
 
@@ -40,6 +42,11 @@ class BasicState extends State<Basic> {
         resolveUser: (UserID id) async {
           return User(id: id, name: 'John Doe');
         },
+        builders: Builders(
+          composerBuilder: (contex) {
+            return LocalComposer();
+          },
+        ),
       ),
     );
   }
